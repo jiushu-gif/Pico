@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #252545;
+    background-image: url('../assets/Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+    overflow: hidden;
+}
+
+#game-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 左侧霓虹边框装饰 */
+#game-wrapper::before {
+    content: '';
+    position: absolute;
+    left: -18px;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    border-radius: 6px;
+    background: linear-gradient(to bottom,
+        #FF69B4 0%,
+        #CC44AA 20%,
+        #9944DD 40%,
+        #6666FF 60%,
+        #4488EE 80%,
+        #44BBFF 100%);
+    box-shadow:
+        0 0 8px rgba(255, 105, 180, 0.5),
+        0 0 20px rgba(100, 100, 255, 0.3),
+        -4px 0 12px rgba(180, 80, 220, 0.25);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* 右侧霓虹边框装饰（镜像） */
+#game-wrapper::after {
+    content: '';
+    position: absolute;
+    right: -18px;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    border-radius: 6px;
+    background: linear-gradient(to bottom,
+        #44BBFF 0%,
+        #4488EE 20%,
+        #6666FF 40%,
+        #9944DD 60%,
+        #CC44AA 80%,
+        #FF69B4 100%);
+    box-shadow:
+        0 0 8px rgba(100, 180, 255, 0.5),
+        0 0 20px rgba(100, 100, 255, 0.3),
+        4px 0 12px rgba(180, 80, 220, 0.25);
+    z-index: 10;
+    pointer-events: none;
+}
+
+#game-container {
+    border-radius: 8px;
+    overflow: hidden;
+    /* 霓虹粉紫光晕替换旧蓝色辉光 */
+    box-shadow:
+        0 0 15px rgba(255, 105, 180, 0.3),
+        0 0 40px rgba(180, 80, 220, 0.2),
+        0 0 80px rgba(100, 80, 200, 0.15);
+}
+
+#game-container canvas {
+    display: block;
+    /* 移除透明度 — 画布完全不透明，舞台背景在canvas内部绘制 */
+}
